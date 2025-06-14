@@ -6,14 +6,14 @@
 
 ## About
 
-**wDRW** implements the **Weighted Directed Random Walk (wDRW)** algorithm for quantifying activity of gene co-expression network modules in WGCNA pipelines.
+**wDRW** provides an implementation of a **Weighted Directed Random Walk (wDRW)** algorithm for scoring the activity of gene co-expression network modules generated using WGCNA.
 
-The method integrates WGCNA topological overlap matrices (TOM) with directed random walk propagation to produce network-based module activity scores, while also accounting for statistical and biological significance of differential gene expression. These scores can serve as an alternative to classical eigengene-based module summaries, which do not integrate the network structure of genes.
+By combining WGCNA topological overlap matrices (TOM) with directed random walk propagation, wDRW generates module activity scores that reflect both the **network structure** of genes and the **biological and statistical relevance ** (Log2FC and padj) of differential expression. These scores offer a network-based alternative to classical eigengene-based scoring, which do not account for the network connectivity of genes.
 
-**Features:**
+**Key features:**
 
-- Computes network-based module activity scores
-- Alternative to `moduleEigengenes`-based summaries
+- Computes module activity scores that integrate network topology and differential expression  
+- Serves as an alternative to `moduleEigengenes`-based activity scoring 
 - Compatible with WGCNA pipelines
 
 ---
@@ -25,21 +25,25 @@ The method integrates WGCNA topological overlap matrices (TOM) with directed ran
 if (!requireNamespace("devtools", quietly = TRUE))
     install.packages("devtools")
 
-devtools::install_github("yourgithubusername/wDRW")
+devtools::install_github("SemdeGroot/wDRW")
 ```
 
 ```r
 library(wDRW)
+```
 
+```r
 # Example inputs:
 # condition_id <- "Sample123"
 # module_nr <- 1
 # expression_df <- read.csv(system.file("extdata", "expression_df.csv", package = "wDRW"))
 # TOM <- readRDS(system.file("extdata", "TOM.rds", package = "wDRW"))
+```
 
-# Compute DRW score
-# drw_result <- compute_drw_score(condition_id, module_nr, expression_df, TOM)
-# print(drw_result)
+```r
+# Compute wDRW score
+# wDRW_result <- compute_wDRW_score(condition_id, module_nr, expression_df, TOM)
+# print(wDRW_result)
 ```
 
 ## Getting started
