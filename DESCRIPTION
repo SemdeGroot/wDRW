@@ -1,0 +1,32 @@
+Package: wDRW
+Type: Package
+Title: Weighted Directed Random Walk Algorithm for WGCNA Module Activity Scoring
+Version: 0.99.0
+Authors@R: c(
+    person("Sem", "de Groot",
+      email = "semdegroot2003@gmail.com",
+      role = c("aut", "cre")
+    )
+)
+Description: Provides an implementation of the Weighted Directed Random Walk (wDRW) algorithm
+    for quantifying activity of gene co-expression network modules. The method integrates
+    WGCNA topological overlap matrices with directed random walk propagation to produce
+    network-aware module activity scores that can serve as an alternative to classical
+    eigengene-based module summaries. Suitable for use in transcriptomics pipelines where
+    biologically meaningful module quantification is needed.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+    dplyr,
+    tibble,
+    Matrix,
+    WGCNA
+Suggests:
+    testthat,
+    BiocStyle,
+    knitr,
+    rmarkdown
+RoxygenNote: 7.3.0
+biocViews: GeneExpression, GraphAndNetwork, NetworkInference, Software
+BugReports: https://github.com/SemdeGroot/wDRW/issues
+URL: https://github.com/SemdeGroot/wDRW
